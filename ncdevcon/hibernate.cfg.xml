@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+  "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+    <property name="cache.use_query_cache">true</property>
+    <property name="cache.region_prefix">Artists</property>
+    <property name="generate_statistics">true</property>
+
+    <!-- Enable Hibernate's automatic session context management -->
+    <property name="current_session_context_class">thread</property>
+
+    <!-- Enable the second-level cache  -->
+    <property name="cache.use_second_level_cache">true</property>
+    <property name="cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</property>
+    <property name="net.sf.ehcache.configurationResourceName">ehcache.xml</property>
+		
+  </session-factory>
+</hibernate-configuration>
