@@ -1,9 +1,8 @@
-<cfset getArtists = cacheGet("artistQuery", "basicArtistsCache")>
+<cfset getArtists = cacheGet("cacheItemKey", "basicArtistsCache")>
 
-<cfif isNull(getArtists)>
-	<cfquery name="getArtists" datasource="cfartgallery">SELECT * from artists</cfquery>
-    <cfset cachePut("artistQuery", "#getArtists#",0,300,"basicArtistsCache")>
+<cfif !isNull(getArtists)>
+	<p>found artists: #getArtists#</p>
 </cfif>
-
-<!--- dump the query from cache --->
-<cfdump var="#getArtists#">
+<cfif isNull(getArtists)>
+    <cfset cachePut("cacheItemKey", "thisIsTheValue",0,300,"basicArtistsCache")>
+</cfif>
