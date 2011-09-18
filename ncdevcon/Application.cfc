@@ -11,7 +11,7 @@ component
     secondarycacheenabled="true",
 	/* ormconfig="hibernate.cfg.xml", */
 	dialect="derby",
-	logsql="true",
+	logsql="false",
 	savemapping="false"
   };
 
